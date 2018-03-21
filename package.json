@@ -4,7 +4,7 @@
   "description": "autocomplete endagered species search app (latin names!)",
   "main": "server.js",
   "scripts": {
-    "test": "nyc tape test.js | tap-spec"
+    "test": "nyc tape test.js | tap-spec",
   },
   "repository": {
     "type": "git",
