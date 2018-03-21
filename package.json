@@ -2,9 +2,9 @@
   "name": "endangered-animals",
   "version": "1.0.0",
   "description": "autocomplete endagered species search app (latin names!)",
-  "main": "test.js",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "nyc tape test.js | tap-spec"
   },
   "repository": {
     "type": "git",
