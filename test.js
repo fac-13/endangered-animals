@@ -16,3 +16,10 @@ test("testing tape", function (t) {
   t.deepEquals(actual, expected, "returns one");
   t.end();
 })
+
+test("filterspecies returns array", function (t) {
+  var actual = logic.filterSpecies(1);
+  var expected = 1;
+  t.deepEquals(actual, expected, "should return array, got:" + actual);
+  t.end();
+})
