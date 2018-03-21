@@ -1,0 +1,34 @@
+{
+  "name": "endangered-animals",
+  "version": "1.0.0",
+  "description": "autocomplete endagered species search app (latin names!)",
+  "main": "test.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fac-13/endangered-animals.git"
+  },
+  "keywords": [
+    "animals",
+    "latin",
+    "autocomplete",
+    "species",
+    "search",
+    "endangered",
+    "at-risk"
+  ],
+  "author": "Giulia Jennah Jenath Haydn",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fac-13/endangered-animals/issues"
+  },
+  "homepage": "https://github.com/fac-13/endangered-animals#readme",
+  "devDependencies": {
+    "nodemon": "^1.17.2",
+    "nyc": "^11.6.0",
+    "tap-spec": "^4.1.1",
+    "tape": "^4.9.0"
+  }
+}
