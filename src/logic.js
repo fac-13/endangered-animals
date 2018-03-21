@@ -3,8 +3,12 @@
 
 
 // Funtion to Filter Species Name for Autocomplete
-  function filterSpecies(x) {
-      return x;
+  const filterSpecies = function(input) {
+    
+    return result = input.map(function(entry) {
+      return entry.scientific_name;
+    });
+    
   }
 
   
@@ -16,4 +20,4 @@
 
 // Exports
 
- module.exports = {filterSpecies};
+ module.exports = { filterSpecies };
