@@ -28,32 +28,34 @@ const extractSpecies = function (dataList) {
 };
 
 // Function to Filter Species Name for Autocomplete
-const filterSpecies = function(dataList, userSelector) {
+const filterSpecies = function (dataList, userSelector) {
   // Extract list of scientific names from objects returned by API
   const speciesNames = extractSpecies(dataList);
   // Return list of scientific names filtered by matching user input string
   // If no user input string, just return all (required only for testing)
-  return (result = speciesNames.filter(function(entry) {
+  var result = speciesNames.filter(function (entry) {
     return entry.startsWith(userSelector.toLowerCase());
-  }));
+  });
+
+  //only return 20 species when the full list is greater than 20 animals long 
+  let maxSpecies = [];
+  let maxNum = result.length;
+
+  if (maxNum > 20) {
+    for (let i = 0; i < 20; i++) {
+      let randomNum = Math.floor(Math.random() * (maxNum - 0 + 1)) + 0;
+      maxSpecies.push(result[randomNum])
+    }
+    return maxSpecies;
+  } else {
+    return result;
+  }
+
 };
 
 
 
 
-  // acrocephalus%20agricola?token=9bb4facb6d23f48efbf424bb05c0c1ef1cf6f468393bc745d42179ac4aca5fee
-
-  // Function to Request Animal Details from API
-  // const animalDetails = function(input) {
-  //   const url = 'http://apiv3.iucnredlist.org/api/v3/species/'
-  //   const key = 'token=444e7498e588245bc367e4351fdc31f0f34b970d7672300176d3c3c2b5510011'
-  //   const animalQuery = input.split(' ').join('%20');
-  //   const request = `${url}${animalQuery}?${key}`;
-
-  //   let output = [];
-  // }
 
 
-  // Exports
-
-  module.exports = { filterSpecies }
+module.exports = { filterSpecies }
