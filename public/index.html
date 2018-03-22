@@ -7,7 +7,7 @@
   <meta name="author" content="Hayden, Jennah, Giulia, Jenath">
   <meta name="description" content="A web app where you can find out about endagered animals and their latin names">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" type="text/css" href="./style.css" />
+  <link rel="stylesheet" type="text/css" href="public/style.css" />
 </head>
 
 <body>
@@ -16,7 +16,7 @@
 
 
 <form action="/get-list">
-        <input list="animals">
+        <input list="animals" id="text-field">
         <datalist id="animals">
                  <!-- -option list items will go here -->
                  <!-- e.g. <option value="Elephant"> -->
@@ -24,7 +24,7 @@
     <input type="submit" value="Search">
   </form>
 
-<script src="index.js"></script>
+<script src="public/index.js"></script>
 
 </body>
 

@@ -5,9 +5,10 @@ const router = (request, response) => {
   let url = request.url;
   if (url === "/") {
     handler.handleHome(request, response);
-  } else if (url.indexOf("pub") !== -1) {
+  } else if (url.indexOf("public") !== -1) {
     handler.handleStatic(request, response);
-  } else if (url === "/get-list") {
+  } else if (url.indexOf("/get-list") !== -1) {
+    console.log("Router get list request working"); 
     handler.handleResultsList(request, response);
   } else {
     response.writeHead(404, "Content-Type: text/html");
