@@ -22,21 +22,11 @@ const handleHome = (request, response) => {
 
 // Handler Function for Autocomplete Results List
 const handleResultsList = (request, response) => {
-  // const filePath = path.join(__dirname, 'logic.js'); 
-
+  
   const queryString = request.url.split("?")[1];
-
-  console.log("handleResults", queryString);
-
   const dataBack = logic.filterSpecies(dataList.result, queryString);
-
-  let result = [];
-
-  dataBack.forEach(function(item) {
-    result.push(`<option value="${item}">`);
-  });
-
-  console.log(result);
+  response.writeHead(200, { 'Content-Type': 'text/html' });
+  response.end(JSON.stringify(dataBack));
 
 }
 

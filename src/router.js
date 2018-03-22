@@ -8,7 +8,7 @@ const router = (request, response) => {
   } else if (url.indexOf("public") !== -1) {
     handler.handleStatic(request, response);
   } else if (url.indexOf("/get-list") !== -1) {
-    console.log("Router get list request working"); 
+    // console.log("Router get list request working"); 
     handler.handleResultsList(request, response);
   } else if (url.indexOf("/animal-detail") !== -1) {
     handler.handleAnimalDetail(request, response);
