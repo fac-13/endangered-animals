@@ -9,6 +9,8 @@ const router = (request, response) => {
     handler.handleStatic(request, response);
   } else if (url === "/get-list") {
     handler.handleResultsList(request, response);
+  } else if (url === "/animal-detail") {
+    handler.handleAnimalDetail(request, response);
   } else {
     response.writeHead(404, "Content-Type: text/html");
     response.end("<h1>404 Not Found</h1>");
