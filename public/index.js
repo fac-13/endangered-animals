@@ -15,4 +15,11 @@ function makeRequest(url, callback){
 
 } 
 
-module.exports = makeRequest;
+var input = document.querySelector("#text-field"); 
+
+input.addEventListener('keypress', function(event){
+    var letter = event.key; 
+    console.log(letter)
+    var url = "/get-list" + "?" + letter; 
+    makeRequest(url) 
+})

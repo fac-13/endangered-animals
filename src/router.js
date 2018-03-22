@@ -5,7 +5,7 @@ const router = (request, response) => {
   let url = request.url;
   if (url === "/") {
     handler.handleHome(request, response);
-  } else if (url.indexOf("pub") !== -1) {
+  } else if (url.indexOf("public") !== -1) {
     handler.handleStatic(request, response);
   } else if (url === "/get-list") {
     handler.handleResultsList(request, response);
