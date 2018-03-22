@@ -18,7 +18,7 @@ test("testing tape", function(t) {
 
 
 test("filterSpecies returns array", function(t) {
-  var actual = Array.isArray(logic.filterSpecies(dummy.result));
+  var actual = Array.isArray(logic.filterSpecies(dummy.result, 'acr'));
   var expected = true;
   t.deepEquals(actual, expected, "should return array, got: " + actual);
   t.end();
@@ -26,7 +26,7 @@ test("filterSpecies returns array", function(t) {
 
 
 test("filterSpecies returns array of strings", function(t) {
-  var actual = typeof logic.filterSpecies(dummy.result)[5];
+  var actual = typeof logic.filterSpecies(dummy.result, 'acr')[5];
   var expected = 'string';
   t.deepEquals(actual, expected, "should return array of strings, got: " + actual);
   t.end();

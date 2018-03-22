@@ -24,9 +24,11 @@ const handleHome = (request, response) => {
 const handleResultsList = (request, response) => {
   
   const queryString = request.url.split("?")[1];
+  if (queryString){
   const dataBack = logic.filterSpecies(dataList.result, queryString);
   response.writeHead(200, { 'Content-Type': 'text/html' });
   response.end(JSON.stringify(dataBack));
+  }
 
 }
 
