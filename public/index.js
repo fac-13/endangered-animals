@@ -18,12 +18,9 @@ function makeRequest(url, callback){
 
 var input = document.querySelector("#text-field"); 
 
-var searchArray = []; 
-    
-input.addEventListener('keypress', function(event){
-    var letter = event.key;
-    searchArray.push(letter); 
-    var url = "/get-list" + "?" + searchArray.join("");
-    console.log(url) 
-    makeRequest(url) 
+   
+input.addEventListener('keyup', function(event){
+    var url = "/get-list" + "?" + input.value; 
+    console.log(url); 
+    makeRequest(url);  
 })
