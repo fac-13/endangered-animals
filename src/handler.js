@@ -22,14 +22,14 @@ const handleHome = (request, response) => {
 // Handler Function for Autocomplete Results List
 const handleResultsList = (request, response) => {
     // const filePath = path.join(__dirname, 'logic.js'); 
-    console.log("handleResults")
+    console.log("handleResults", request.url)
 }
 
 
 // Handler Function for Static Files
 
 const handleStatic = (request, response) => {
-    console.log("handlestatic:", request.url);
+    
     const extension = request.url.split(".")[1];
     
     const extensionType = {
@@ -56,4 +56,4 @@ const handleStatic = (request, response) => {
 
 // Exports
 
-module.exports = { handleHome, handleStatic };
+module.exports = { handleHome, handleStatic, handleResultsList };
