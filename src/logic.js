@@ -1,6 +1,19 @@
 // Imports
 
 // Server-Side API Request Function
+function makeRequest(url, callback){
+  var xhr = new XMLHttpRequest();
+  xhr.addEventListener('load', function(){
+      if(xhr.status === 200) {
+          var response = JSON.parse(xhr.responseText);
+          var data = callback(response);
+      } else {
+          console.log(`Status code ${xhr.status}`)
+      }
+  })
+  xhr.open('GET', url)
+  xhr.send();
+} 
 
 // Function to Extract List of Species from API Response Array of Objects
 const extractSpecies = function(dataList) {
@@ -25,7 +38,11 @@ const filterSpecies = function(dataList, userSelector) {
   }));
 };
 
-// Function to Extract Data from API Call for Animal Details
+// Function to Request Animal Details from API
+const animalDetails = function(x) {
+  return x;
+}
+
 
 // Exports
 
