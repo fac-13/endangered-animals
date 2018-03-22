@@ -2,54 +2,59 @@
 const fs = require('fs');
 const path = require('path');
 const logic = require('./logic');
+const dataList = require('./list.json');
 
 //Handle calls to the home page
 const handleHome = (request, response) => {
-    const filePath = path.join(__dirname, '..', 'public', 'index.html')
+  const filePath = path.join(__dirname, '..', 'public', 'index.html');
 
-    fs.readFile(filePath, (error, file) => {
-        if (error) {
-            console.log(error);
-            response.writeHead(500, { 'Content-Type': 'text/html' });
-            response.end('<h1>Sorry we can\'t find the home page</h1>');
-        } else {
-            response.writeHead(200, { 'Content-Type': 'text/html' });
-            response.end(file);
-        }
-    })
+  fs.readFile(filePath, (error, file) => {
+      if (error) {
+          console.log(error);
+          response.writeHead(500, { 'Content-Type': 'text/html' });
+          response.end('<h1>Sorry we can\'t find the home page</h1>');
+      } else {
+          response.writeHead(200, { 'Content-Type': 'text/html' });
+          response.end(file);
+      }
+  })
 }
 
 // Handler Function for Autocomplete Results List
 const handleResultsList = (request, response) => {
-    // const filePath = path.join(__dirname, 'logic.js'); 
-    console.log("handleResults", request.url)
+  
+  const queryString = request.url.split("?")[1];
+  const dataBack = logic.filterSpecies(dataList.result, queryString);
+  response.writeHead(200, { 'Content-Type': 'text/html' });
+  response.end(JSON.stringify(dataBack));
+
 }
 
 
 // Handler Function for Static Files
 
 const handleStatic = (request, response) => {
-    
-    const extension = request.url.split(".")[1];
-    
-    const extensionType = {
-        html: 'text/html',
-        css: 'text/css',
-        js: 'application/js',
-        ico: 'image/x-icon'
-    }
+  
+  const extension = request.url.split(".")[1];
+  
+  const extensionType = {
+      html: 'text/html',
+      css: 'text/css',
+      js: 'application/js',
+      ico: 'image/x-icon'
+  }
 
-    const filePath = path.join(__dirname, '..', request.url)
+  const filePath = path.join(__dirname, '..', request.url)
 
-    fs.readFile(filePath, (error, file) => {
-        if (error) {
-            response.writeHead(500, { 'Content-Type': 'text/html' });
-            response.end('<h1>Sorry we can\'t find the static file</h1>');
-        } else {
-            response.writeHead(200, { 'Content-Type':`${extensionType[extension]}` });
-            response.end(file);
-        }
-    })
+  fs.readFile(filePath, (error, file) => {
+      if (error) {
+          response.writeHead(500, { 'Content-Type': 'text/html' });
+          response.end('<h1>Sorry we can\'t find the static file</h1>');
+      } else {
+          response.writeHead(200, { 'Content-Type':`${extensionType[extension]}` });
+          response.end(file);
+      }
+  })
 
 }
 
