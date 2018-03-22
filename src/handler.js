@@ -1,7 +1,7 @@
 // Imports
-const fs = require('fs')
-const path = require('path')
-const logic = require('./logic')
+const fs = require('fs');
+const path = require('path');
+const logic = require('./logic');
 
 //Handle calls to the home page
 const handleHome = (request, response) => {
