@@ -21,8 +21,6 @@ var input = document.querySelector("#text-field");
 input.addEventListener('keyup', function(event){
 
     var url = "/get-list" + "?" + input.value;
-
-
-    console.log(url) 
-    makeRequest(url) 
+    // console.log(url); 
+    makeRequest(url); 
 })

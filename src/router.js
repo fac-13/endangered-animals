@@ -10,7 +10,7 @@ const router = (request, response) => {
   } else if (url.indexOf("/get-list") !== -1) {
     console.log("Router get list request working"); 
     handler.handleResultsList(request, response);
-  } else if (url === "/animal-detail") {
+  } else if (url.indexOf("/animal-detail") !== -1) {
     handler.handleAnimalDetail(request, response);
   } else {
     response.writeHead(404, "Content-Type: text/html");
