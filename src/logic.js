@@ -38,10 +38,18 @@ const filterSpecies = function(dataList, userSelector) {
   }));
 };
 
+
+// acrocephalus%20agricola?token=9bb4facb6d23f48efbf424bb05c0c1ef1cf6f468393bc745d42179ac4aca5fee
+
 // Function to Request Animal Details from API
-const animalDetails = function(x) {
-  return x;
-}
+// const animalDetails = function(input) {
+//   const url = 'http://apiv3.iucnredlist.org/api/v3/species/'
+//   const key = 'token=444e7498e588245bc367e4351fdc31f0f34b970d7672300176d3c3c2b5510011'
+//   const animalQuery = input.split(' ').join('%20');
+//   const request = `${url}${animalQuery}?${key}`;
+
+//   let output = [];
+// }
 
 
 // Exports
