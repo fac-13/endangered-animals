@@ -23,7 +23,7 @@ input.addEventListener('keyup', function(event){
     var url = "/get-list" + "?" + input.value;
     // console.log(url); 
     makeRequest(url, function(x) {
-        console.log('front end list cb: ', x);
+        console.log('Result list: ', x);
     }); 
 
 })
