@@ -26,9 +26,7 @@ const handleHome = (request, response) => {
 const handleResultsList = (request, response) => {
   
   const queryString = request.url.split("?")[1];
-  console.log(queryString);
   const parsedQuery = qs.parse(queryString);
-  console.log(parsedQuery);
   if (queryString){
     const dataBack = logic.filterSpecies(dataList.result, parsedQuery.query);
     response.writeHead(200, { 'Content-Type': 'text/html' });
@@ -48,7 +46,8 @@ const handleStatic = (request, response) => {
       html: 'text/html',
       css: 'text/css',
       js: 'application/js',
-      ico: 'image/x-icon'
+      ico: 'image/x-icon',
+      svg: 'image/svg+xml'
   }
 
   const filePath = path.join(__dirname, '..', request.url)

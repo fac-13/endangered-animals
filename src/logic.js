@@ -31,12 +31,16 @@ const extractSpecies = function (dataList) {
 const filterSpecies = function (dataList, userSelector) {
   // Extract list of scientific names from objects returned by API
   const speciesNames = extractSpecies(dataList);
+  console.log(speciesNames); 
   // Return list of scientific names filtered by matching user input string
   // If no user input string, just return all (required only for testing)
   var result = speciesNames.filter(function (entry) {
     return entry.startsWith(userSelector.toLowerCase());
   });
+ return listLength(result); 
+}
 
+function listLength (result){
   //only return 20 species when the full list is greater than 20 animals long 
   let maxSpecies = [];
   let maxNum = result.length;
@@ -50,12 +54,16 @@ const filterSpecies = function (dataList, userSelector) {
   } else {
     return result;
   }
+}
 
-};
+  // Function to Request Animal Details from API
+  
+ //   const url = 'http://apiv3.iucnredlist.org/api/v3/species/'
+  //   const key = 'token=444e7498e588245bc367e4351fdc31f0f34b970d7672300176d3c3c2b5510011'
+  //   const animalQuery = input.split(' ').join('%20');
+  //   const request = `${url}${animalQuery}?${key}`;
 
 
 
 
-
-
-module.exports = { filterSpecies }
+module.exports = { filterSpecies } 
