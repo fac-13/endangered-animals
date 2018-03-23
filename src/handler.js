@@ -32,8 +32,17 @@ const handleResultsList = (request, response) => {
 
 }
 
+// Handler function for getting information on the users chosen animal
 const handleAnimalDetail = (request, response) => {
-    console.log("Animal detail handler working"); 
+    const queryString = request.url.slice(request.url.indexOf('?')+1)
+    
+    logic.callAPI(queryString, function(res){
+        // stringify response as reponse.end requires a string
+        let dataAnimal = JSON.stringify(res);
+        response.writeHead(200, {'Content-Type': 'text/html'});
+        response.end(dataAnimal);
+    })
+     
 }
 
 
@@ -68,4 +77,4 @@ const handleStatic = (request, response) => {
 
 // Exports
 
-module.exports = { handleHome, handleStatic, handleResultsList };
+module.exports = { handleHome, handleStatic, handleResultsList, handleAnimalDetail};
