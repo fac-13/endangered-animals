@@ -5,4 +5,3 @@ When the user selects an option, they are provided with data on the animal inclu
 
 Our project uses the [ICUN red list API](http://apiv3.iucnredlist.org/)
 
-![picture of the architecture of the app](https://github.com/fac-13/endangered-animals/blob/master/IMG_1949.jpg)
