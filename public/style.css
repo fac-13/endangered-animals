@@ -22,7 +22,7 @@ img {
 }
 
 form {
-  margin-top: 3rem; 
+  margin-top: 2rem; 
 }
 
 input {
@@ -38,3 +38,17 @@ button {
     border-radius: 0.2rem; 
 }
 
+#animal-profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#animal-profile div {
+    border-top: solid 4px;
+    border-bottom: solid 4px;
+    text-align: left;
+    padding: 1.5rem 1.5rem;
+    margin-top: 1.5rem;
+    max-width: 50%;
+}
