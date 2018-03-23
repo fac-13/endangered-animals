@@ -37,7 +37,10 @@ const filterSpecies = function (dataList, userSelector) {
   var result = speciesNames.filter(function (entry) {
     return entry.startsWith(userSelector.toLowerCase());
   });
+ return listLength(result); 
+}
 
+function listLength (result){
   //only return 20 species when the full list is greater than 20 animals long 
   let maxSpecies = [];
   let maxNum = result.length;
