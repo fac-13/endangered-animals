@@ -1,4 +1,9 @@
 // Imports
+const request = require('request');
+const config = require('./config');
+const iucnKey = config.iucnKey;
+
+
 
 // Server-Side API Request Function
 function makeRequest(url, callback) {
@@ -31,7 +36,6 @@ const extractSpecies = function (dataList) {
 const filterSpecies = function (dataList, userSelector) {
   // Extract list of scientific names from objects returned by API
   const speciesNames = extractSpecies(dataList);
-  console.log(speciesNames); 
   // Return list of scientific names filtered by matching user input string
   // If no user input string, just return all (required only for testing)
   var result = speciesNames.filter(function (entry) {
@@ -53,14 +57,33 @@ const filterSpecies = function (dataList, userSelector) {
   }
 }
 
-  // Function to Request Animal Details from API
-  
- //   const url = 'http://apiv3.iucnredlist.org/api/v3/species/'
-  //   const key = 'token=444e7498e588245bc367e4351fdc31f0f34b970d7672300176d3c3c2b5510011'
-  //   const animalQuery = input.split(' ').join('%20');
-  //   const request = `${url}${animalQuery}?${key}`;
+// Function to call the IUCN API using the node request module 
+function callAPI(animal, cb) {
+  request(`http://apiv3.iucnredlist.org/api/v3/species/narrative/${animal}?token=${iucnKey}`, function (error, response, body) {
+    if (!error && response.statusCode == 200) {
+      let data = JSON.parse(body);
+      let result = extractData(data);
+      cb(result);
+    } else {
+      console.warn(error);
+    }
+  });
+
+
+}
+
+// Function to extract desired Animal Details from API
+const extractData = (response) => {
+  return info = {
+    name: response.name,
+    habitat: response.result[0]["rationale"],
+    threats: response.result[0]["threats"],
+    conservation: response.result[0]["conservationmeasures"]
+  }
+}
 
 
 
 
-module.exports = { filterSpecies } 
+
+module.exports = { filterSpecies, makeRequest, extractData, callAPI } 
