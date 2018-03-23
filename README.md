@@ -4,3 +4,5 @@ Our project is an autocomplete tool which allows users to type in a searchbox an
 When the user selects an option, they are provided with data on the animal including, its common name, habitat, endangered status, threats and conservation efforts. 
 
 Our project uses the [ICUN red list API](http://apiv3.iucnredlist.org/)
+
+![picture of the architecture of the app](IMG_1949)
