@@ -50,3 +50,21 @@ function createList(animals) {
  // dataBack.forEach(function(item) {
   //   result.push(`<option value="${item}">`);
   // });
+
+
+  // Enable animal information functionality 
+  document.querySelector('button').addEventListener('click', function(event){
+    event.preventDefault();
+    var url = "/animal-detail" + "?" + input.value;
+    makeRequest(url, createAnimalProfile);
+  })
+
+  function createAnimalProfile(animal) {
+      //The data is returned in string format so put it back into an object
+      animal = JSON.parse(animal);
+      console.log('animal put back to object: ', animal);
+
+      
+  }
+
+  
