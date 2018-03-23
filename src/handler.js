@@ -32,18 +32,23 @@ const handleResultsList = (request, response) => {
 
 }
 
+const handleAnimalDetail = (request, response) => {
+    console.log("Animal detail handler working"); 
+}
+
 
 // Handler Function for Static Files
 
 const handleStatic = (request, response) => {
   
   const extension = request.url.split(".")[1];
-  
+
   const extensionType = {
       html: 'text/html',
       css: 'text/css',
       js: 'application/js',
-      ico: 'image/x-icon'
+      ico: 'image/x-icon',
+      svg: 'image/svg+xml'
   }
 
   const filePath = path.join(__dirname, '..', request.url)
