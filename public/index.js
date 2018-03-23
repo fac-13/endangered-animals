@@ -19,7 +19,7 @@ function makeRequest(url, callback){
 var input = document.querySelector("#text-field");
 
 input.addEventListener('keyup', function(event){
-    var url = "/get-list" + "?" + input.value;
+    var url = "/get-list" + "?query=" + input.value;
     makeRequest(url,createList);
 
 
