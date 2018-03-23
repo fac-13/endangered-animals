@@ -16,7 +16,9 @@
  
 
  <form> 
-        <input list="animals" id="text-field">
+        <label aria-label="Type or choose an animal">
+          <input list="animals" id="text-field" autocomplete="off">
+        </label>
         <datalist id="animals">
                  <!-- -option list items will go here -->
                  <!-- e.g. <option value="Elephant"> -->
