@@ -22,8 +22,6 @@ input.addEventListener('keyup', function(event){
     var url = "/get-list" + "?" + input.value;
     makeRequest(url,createList);
 
-
-
 })
 
 function createList(animals) {
@@ -47,6 +45,8 @@ function createList(animals) {
       datalistOptions.appendChild(option);
     })
 }
+
+
  // dataBack.forEach(function(item) {
   //   result.push(`<option value="${item}">`);
   // });
