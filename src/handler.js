@@ -1,8 +1,10 @@
 // Imports
 const fs = require('fs');
+const qs = require('querystring');
 const path = require('path');
 const logic = require('./logic');
 const dataList = require('./list.json');
+
 
 //Handle calls to the home page
 const handleHome = (request, response) => {
@@ -24,16 +26,13 @@ const handleHome = (request, response) => {
 const handleResultsList = (request, response) => {
   
   const queryString = request.url.split("?")[1];
+  const parsedQuery = qs.parse(queryString);
   if (queryString){
-  const dataBack = logic.filterSpecies(dataList.result, queryString);
-  response.writeHead(200, { 'Content-Type': 'text/html' });
-  response.end(JSON.stringify(dataBack));
+    const dataBack = logic.filterSpecies(dataList.result, parsedQuery.query);
+    response.writeHead(200, { 'Content-Type': 'text/html' });
+    response.end(JSON.stringify(dataBack));
   }
 
-}
-
-const handleAnimalDetail = (request, response) => {
-    console.log("Animal detail handler working"); 
 }
 
 
